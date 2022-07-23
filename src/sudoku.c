@@ -17,7 +17,7 @@ void sudoku_init_from_file(sudoku_t* self, FILE* fp)
     }
 }
 
-int cell_get(uint16_t u)
+static int cell_get(uint16_t u)
 {
     int n = 1;
     while (u != 1) {
