@@ -55,11 +55,8 @@ static int sudoku_test(sudoku_t* self, int y, int x, int kk)
             if (!(i == y && j == x)) {
                 int t;
                 if ((t = cell_get(self->cells[i][j])) == kk) {
-                    printf("%d %d %d\n", y, x, kk);
                     return 1;
                 }
-                printf("t %d %d %d %d %d %d %d\n", y, x, kk, t,
-                    self->cells[i][j], i, j);
             }
         }
 
@@ -68,7 +65,6 @@ static int sudoku_test(sudoku_t* self, int y, int x, int kk)
         if (!(i == y && j == x)) {
             int t;
             if ((t = cell_get(self->cells[i][j])) == kk) {
-                printf("%d %d %d\n", y, x, kk);
                 return 1;
             }
         }
@@ -79,7 +75,6 @@ static int sudoku_test(sudoku_t* self, int y, int x, int kk)
         if (!(i == y && j == x)) {
             int t;
             if ((t = cell_get(self->cells[i][j])) == kk) {
-                printf("%d %d %d\n", y, x, kk);
                 return 1;
             }
         }
@@ -119,7 +114,6 @@ static int sudoku_simple_resolve(sudoku_t* self)
                         if (sudoku_test(self, i, j, kk)) {
                             n++;
                             self->cells[i][j] &= ~(1 << (kk - 1));
-                            printf("disable %d at(%d, %d)\n", kk, i, j);
 							if(self->cells[i][j] == 0) return 1;
                         }
                     }
